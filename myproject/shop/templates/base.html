@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- 以下bootstrap機能追加 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+  <!-- 追加 ※cssファイルは「all.min.css」を使用する！！！ -->
+  <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}" >
+
+
+
+  <meta name="description" content="{% block metadescription %}{% endblock %}">
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+	<!-- ついでにクラスも指定 -->
+    <div class="container">
+        {% include 'header.html' %}
+        {% include 'navbar.html' %}
+        {% block content %}
+        {% endblock %}
+    </div>
+        {% include 'footer.html' %}
+        <!-- 以下js機能追加 -->
+        <script src="{% static 'js/jquery-3.3.1.slim.min.js' %}"></script>
+        <script src="{% static 'js/popper.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>
