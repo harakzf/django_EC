@@ -7,7 +7,7 @@ from django.urls import reverse
 '''モデルの詳細解説'''
 class Category(models.Model):
     name = models.CharField(max_length=250, unique=True)   # 小 - 大サイズの文字列のフィールド
-    slug = models.SlugField(max_length=250, unique=True)   # 文字、数字、アンダースコア、またはハイフンのみを含む短いラベル。 一般的に URL 内で使用される ※slugについてはもう少し要調査
+    slug = models.SlugField(max_length=250, unique=True)   # 文字/数字/アンダースコア/ハイフンのみを含む短いラベル。 一般的に URL 内で使用される ※slugについてはもう少し要調査
     description = models.TextField(blank=True)
     # ①ImageFieldを扱うにはPillowが必要→パッケージインストール
     # settings.pyにMEDIA_ROOTを定義する必要
@@ -26,7 +26,7 @@ class Category(models.Model):
 
     class Meta:
         '''テーブルのメタ情報を設定'''
-        ordering = ('name',)                  # ??
+        ordering = ('name',)                  # 並び替えを実施する変数。'name'をデフォルト（昇順）で表示させる
         verbose_name = 'category'             # テーブルの表示名。以下で指定しないとココの複数形がadmin画面に表示される
         verbose_name_plural = 'カテゴリー'    # テーブルの表示名（複数形）。admin画面に複数形で表示される時の名称指定
 

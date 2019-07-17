@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shop',
+    'shop.apps.ShopConfig',     # 左記の指定方法でメソッドごと指定することで、adminページへの表示使用を変更できる
     'search_app',
-    'cart',
-    'stripe',   # 決済時使用パッケージ
+    'cart.apps.CartConfig',
+    'stripe',       # 決済時使用パッケージ
+    'order.apps.OrderConfig',
 ]
 
 MIDDLEWARE = [

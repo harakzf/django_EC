@@ -7,6 +7,8 @@
     Cart - Perfect Cushion Store
 {% endblock %}
 {% block content %}
+
+	<!-- カートの中身が空だった場合に表示 -->
     {% if not cart_items %}
         <div>
           <div class="text-center">
@@ -18,6 +20,7 @@
             </p>
           </div>
         </div>
+    <!-- カートに商品が存在する場合に表示 -->
     {% else %}
         <div>
             <div class="text-center">
@@ -47,12 +50,12 @@
                                 <br>
                                 SKU: {{cart_item.product.id}}
                                 <br>
-                                Unit Price: £{{cart_item.product.price}}
+                                単価: {{cart_item.product.price}} 円
                                 <br>
-                                Qty: {{cart_item.quantity}} x £{{cart_item.product.price}}
+                                数量: {{cart_item.quantity}} x {{cart_item.product.price}} 円
                             </td>
                             <td>
-                                £{{cart_item.sub_total}}
+                                {{cart_item.sub_total}} 円
                             </td>
                             {% if cart_item.quantity < cart_item.product.stock %}
                                 <td>
@@ -79,14 +82,13 @@
                                 <td>
                                     &nbsp;
                                     <a href="" class="custom_a">
-                                        <!-- <i class="fas fa-minus-circle custom_icon"></i> -->
-                                        <!-- マイナス機能付与 -->
-                                        ー
+                                    	<!-- マイナスボタン表示 -->
+                                        <i class="fas fa-minus-circle custom_icon"></i>
                                     </a>
                                     &nbsp;
                                     <a href="" class="custom_item">
-                                        <!-- <i class="far fa-trash-alt"></i> -->
-                                        削除
+                                        <!-- 削除ボタン表示 -->
+                                        <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
                                 <td></td>
@@ -113,7 +115,7 @@
                     </tr>
                     <tr>
                         <td class="text-left">
-                            Your total is: <strong>£{{ total }}</strong>
+                            Your total is: <strong>{{ total }} 円</strong>
                         </td>
                     </tr>
                   </tbody>
@@ -128,7 +130,7 @@
 						  data-amount="{{ data_total }}"
 						  data-name="My First Dress Shop"
 						  data-description=" サンプルウィンドウ "
-						  data-image="{% static 'img/logo.png' %}"
+						  data-image="{% static 'img/logo_og.png' %}"
 						  data-locale="auto"
 						  data-currency="jpy"
 						  data-shipping-address="true"

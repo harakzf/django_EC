@@ -11,7 +11,8 @@ def counter(request):
 
     else:
         try:
-            cart = Cart.objects.filter(cart_id=_cart_id(request))   # _cart_id()メソッド：引数requestで呼出し
+            cart = Cart.objects.filter(cart_id=_cart_id(request))
+
             cart_items = CartItem.objects.all().filter(cart=cart[:1])
 
             for cart_item in cart_items:
